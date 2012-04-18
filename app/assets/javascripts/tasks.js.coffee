@@ -1,3 +1,5 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+$ ->
+  pusher = new Pusher($('meta[name=pusher_key]').attr('content'))
+  channel = pusher.subscribe("tasks")
+  channel.bind "task-added", (task) ->
+    $('table tbody').append("<tr><td>" + task.name + "</td><td></td><td></td><td></td></tr>")
