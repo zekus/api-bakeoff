@@ -32,6 +32,15 @@ class TasksController < ApplicationController
     end
   end
 
+  # POST /tasks/new/sms
+  def new_by_sms
+    Pusher["tasks"].trigger("task-added", JSON.generate({
+      name: request.params[:session][:initialText]
+    }))
+
+    render :nothing => true
+  end
+
   # GET /tasks/1/edit
   def edit
     @task = Task.find(params[:id])
