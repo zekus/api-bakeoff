@@ -4,7 +4,9 @@
   <title>ApiBakeoff</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <script src="http://js.pusher.com/1.11/pusher.min.js"></script>
   <%= csrf_meta_tags %>
+  <meta content="<%= APP_CONFIG[:pusher][:key] %>" name="pusher_key">
 </head>
 <body>
 
