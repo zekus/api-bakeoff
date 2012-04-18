@@ -21,8 +21,7 @@ class Task
   end
 
   def save
-    self.class.initsession
-    @session.contacts.find(self.class.contact_id).reminders.create(:content => name)
+    self.class.initsession.contacts.find(self.class.contact_id).reminders.create(:content => name)
   end
 
   def self.initsession(token = nil)
