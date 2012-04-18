@@ -3,9 +3,7 @@ class Task < ActiveRecord::Base
 
   validate :name, :presence => true
 
-  after_save :pushbase
-
-  def pushbase
+  def save
     Basecrm.new(:name => name, :contact_id => '4889876')
   end
 end
