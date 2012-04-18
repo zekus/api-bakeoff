@@ -34,5 +34,11 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+group :development do
+  # To use debugger
+  gem 'pry'
+  gem 'pry-doc'
+end
+
+gem 'pipejump'
+gem 'pusher'
